@@ -1,56 +1,62 @@
-/* ========================================= 
-			RESETEO GENERAL
-Aplicamos estas propiedades a todos los elementos de la página
-========================================= */
+/* =======================================================
+		Este archivo define los estilos visuales 
+        de manera general para este proyecto.
+        Estableciendo tamaños y centrando contenido.
+======================================================== */
 
 * {
   /* Hace que padding y border formen parte del tamaño total del elemento */
   box-sizing: border-box;
-  /* Eliminamos los márgenes predeterminados del navegador */
+  /* Eliminamos los márgenes externos que podrian existir por defecto */
   margin: 0;
   /* Eliminamos los espacios internos predeterminados */
   padding: 0;
 }
 
-/* ========================================= 
-	CONFIGURACIÓN GENERAL DE LA PÁGINA 
-========================================= */
+/* ========================================================
+	CONFIGURACIÓN GENERAL DE LA PÁGINA
+    Aplica estilos generales al cuerpo del documento HTML
+======================================================== */
+
 /*Especifica la altura de ventana, fuente principal, color de fondo y color principal del texto*/
 body {
+  /*Establece una altura minima */
   min-height: 100vh;
+  /*Se define el tipo de letra, en caso de no haber Arial disponible
+  entonces se elige Helvetica o sans-serif*/
   font-family: Arial, Helvetica, sans-serif;
+  /*colores que se aplicaran*/
   background-color: #f4f6f8;
   color: #1f2937;
 }
 
 /* ========================================= 
 		CONTENEDOR PRINCIPAL 
+        utiliza .app para representar el contenedor principal
 ========================================= */
-/*Activacion de Flexbox para elementos internos*/
-/*Colocacion de elementos de manera vertical*/
-/* Centramos horizontalmente los elementos con aling.-items */
-/* Centramos verticalmente los elementos justify-content */
-/* Espacio entre los elementos internos */
-/* Espacio interno del contenedor */
-/* Centramos el contenido de texto */
 .app {
+  /*Toda la altura posible del navegador*/
   min-height: 100vh;
+  /*activar flexbox*/
   display: flex;
+  /*organizacion de forma uno debajo del otro*/
   flex-direction: column;
+  /*centrar horizontalmente los elementos*/
   align-items: center;
+  /*centrar verticalmente los elementos*/
   justify-content: center;
-
+  /*Establece una separación de 16 pixeles entre elementos*/
   gap: 16px;
-
+  /*Espacio interno entre el contenido y los bordes*/
   padding: 24px;
-
+  /*centrar el texto dentro del contenedor*/
   text-align: center;
 }
 
 /* ========================================= 
 		TÍTULO PRINCIPAL 	
 ========================================= */
-/* Tamaño del título principal */
+/* Tamaño del título principal o de los elementos con h1 */
 .app h1 {
   font-size: 2rem;
 }
@@ -58,7 +64,7 @@ body {
 /* ========================================= 
 			PÁRRAFOS 
 ========================================= */
-/* Tamaño del texto informativo */
+/* Tamaño del texto informativo o elementos p */
 .app p {
   font-size: 1rem;
 }

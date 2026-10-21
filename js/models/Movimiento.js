@@ -6,13 +6,11 @@ import { generarId } from "../utils/helpers.js";
 
 /* ========================================= 
 			MODELO MOVIMIENTO
-Representa una operación realizada dentro del sistema bancario.
-* Tipo de operación realizada
-* Cantidad involucrada en la operación
-* Descripción opcional del movimiento.
-* Cuenta desde la cual se origina la operación.
+    Con esta clase se representa una operación bancaria realizada dentro del sistema.
+    Cada instancia de movimiento contiene informacion sobre una operacion
 ========================================= */
 export class Movimiento {
+  //inicializa una instancia de la clase movimiento.
   constructor({
     id = generarId(),
     tipo,
@@ -24,7 +22,8 @@ export class Movimiento {
     fecha = new Date().toISOString(),
   }) {
     /* ================================= 
-				ASIGNAR PROPIEDADES 
+				ASIGNAR PROPIEDADES
+        Recibe las información de recibida para almacenarla como propiedades del objeto
 		================================= */
     this.id = id;
     this.tipo = tipo;

@@ -11,6 +11,7 @@ import { generarId } from "../utils/helpers.js";
 ========================================= */
 
 export class Cuenta {
+  //Inicializa una nueva instancia de la clase cuenta
   constructor({
     id = generarId(),
     numeroCuenta,
@@ -36,9 +37,10 @@ export class Cuenta {
 
   /* ===================================== 
 	DEPOSITAR 
-    Incrementa el saldo actual utilizando el monto recibido.
+    Incrementa el saldo actual de la cuenta utilizando el monto recibido.
+    Convierte el monto a número, lo suma al saldo existente y devuelve 
+    el saldo actualizado.
 ===================================== */
-
   depositar(monto) {
     this.saldo += Number(monto);
 
@@ -47,7 +49,8 @@ export class Cuenta {
 
   /* ===================================== 
 	RETIRAR
-    Disminuye el saldo actual utilizando el monto recibido.
+    Convierte el monto a número, lo resta del saldo existente y devuelve 
+    el saldo actualizado.
 ===================================== */
 
   retirar(monto) {

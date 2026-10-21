@@ -1,3 +1,9 @@
+/* =========================================
+                VALIDACIONES
+    Este archivo tiene funciones que validan
+    datos que serán usados por el sistema
+==========================================*/
+
 /* ========================================= 
 		VALIDACIONES GENERALES
         Comprueba que un valor obligatorio realmente contenga información. 

@@ -1,12 +1,19 @@
-/* ========================================= 
-		FORMATEADORES DE INFORMACIÓN 
-========================================= */
-/* Convierte un valor numérico a una representación monetaria utilizando pesos mexicanos. */
-/*Esta funcion formatea un valor numérico como una cadena de texto en formato de moneda mexicana */
-/*Su parametro es el "valor" a formatear */
-export function formatCurrency(valor) {
-  const numero = Number(valor);
+/* =================================================================
+    Este archivo contiene funciones que ayudan a dar formato a 
+    fechas, cuentas y montos para que sean legibles para el usuario
+================================================================== */
 
+/* =====================================================
+		FORMATEADOR DE MONEDA
+        Funcion que cambia el formato de la moneda para que sea mas 
+        entendible
+====================================================== */
+
+export function formatCurrency(valor) {
+  //Number() convierte a numero
+  const numero = Number(valor);
+  //isFinite() comprueba si un numero es finito
+  // el operador ! invierte el resultado
   if (!Number.isFinite(numero)) {
     return "$0.00";
   }
@@ -39,13 +46,15 @@ export function formatDate(fecha) {
 }
 
 /* ========================================= 
-		FORMATEAR NÚMERO DE CUENTA 
+	    FORMATEAR NÚMERO DE CUENTA 
 ========================================= */
 
 /*Funcion para dar formato al numero de cuenta */
 export function formatAccountNumber(numeroCuenta) {
+  /*Convierte el valor recibido en cadena de texto, si la variable 
+    es null o undefined se utiliza la cadena vacia ""  */
   const numero = String(numeroCuenta ?? "");
 
-  //SEPARAR GRUPOS DE CUATRO DÍGITOS
+  /* Capturar un grupos de 4 digitos */
   return numero.replace(/(\d{4})(?=\d)/g, "$1 ");
 }
