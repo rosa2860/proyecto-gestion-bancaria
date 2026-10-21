@@ -31,6 +31,7 @@ El proyecto utiliza las siguientes capas:
 js/
 ├── main.js
 ├── models/
+│   ├── Banco.js
 │   ├── Cuenta.js
 │   ├── Movimiento.js
 │   └── Usuario.js
@@ -39,23 +40,6 @@ js/
     ├── helpers.js
     └── validators.js
 ```
-
-## Utilidades disponibles
-
-### Validators
-
-- `validarCampoObligatorio()`
-- `validarMonto()`
-
-### Helpers
-
-- `generarId()`
-
-### Formatters
-
-- `formatCurrency()`
-- `formatDate()`
-- `formatAccountNumber()`
 
 ## Modelos disponibles
 
@@ -86,14 +70,14 @@ Propiedades principales:
 - `fechaApertura`
 - `activa`
 
-Métodos disponibles:
+Métodos:
 
 - `depositar()`
 - `retirar()`
 
 ### Movimiento
 
-Representa una operación registrada sobre una cuenta.
+Representa una operación realizada sobre una cuenta bancaria.
 
 Propiedades principales:
 
@@ -106,17 +90,67 @@ Propiedades principales:
 - `saldoResultante`
 - `fecha`
 
+### Banco
+
+Coordina los usuarios, cuentas y movimientos del sistema y aplica reglas del dominio bancario.
+
+Métodos disponibles:
+
+- `agregarUsuario()`
+- `buscarUsuarioPorId()`
+- `agregarCuenta()`
+- `buscarCuentaPorId()`
+- `buscarCuentaPorNumero()`
+- `obtenerCuentasDeUsuario()`
+- `registrarMovimiento()`
+- `realizarDeposito()`
+- `obtenerMovimientosDeCuenta()`
+
+## Utilidades disponibles
+
+### Validators
+
+- `validarCampoObligatorio()`
+- `validarMonto()`
+
+### Helpers
+
+- `generarId()`
+
+### Formatters
+
+- `formatCurrency()`
+- `formatDate()`
+- `formatAccountNumber()`
+
+## Funcionalidades implementadas
+
+Actualmente el sistema permite desde JavaScript:
+
+- Crear usuarios.
+- Crear cuentas.
+- Relacionar cuentas con usuarios.
+- Administrar usuarios mediante `Banco`.
+- Administrar cuentas mediante `Banco`.
+- Buscar usuarios.
+- Buscar cuentas.
+- Consultar las cuentas de un usuario.
+- Realizar depósitos.
+- Actualizar el saldo de una cuenta.
+- Registrar movimientos de depósito.
+- Consultar movimientos asociados a una cuenta.
+- Aplicar reglas básicas del dominio.
+
 ## Funcionalidades previstas
 
 Durante las siguientes versiones se desarrollarán:
 
-- Registro de usuarios.
-- Inicio de sesión.
-- Gestión de cuentas.
-- Depósitos.
-- Transferencias.
-- Historial de movimientos.
 - Persistencia con LocalStorage.
+- Registro desde interfaz.
+- Inicio de sesión.
+- Dashboard.
+- Transferencias.
+- Historial visual de movimientos.
 - Manipulación del DOM.
 - Manejo de eventos.
 - Librerías visuales.
@@ -125,4 +159,4 @@ Durante las siguientes versiones se desarrollarán:
 
 ## Versión actual
 
-v0.3.0 — Modelado del dominio con Programación Orientada a Objetos.
+v0.4.0 — Modelo Banco y reglas del dominio bancario.
