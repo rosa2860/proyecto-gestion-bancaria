@@ -2,6 +2,30 @@
 		Este archivo define los estilos visuales 
         de manera general para este proyecto.
         Estableciendo tamaños y centrando contenido.
+
+        #f4f6f8	- #f8f6fb
+        #6b7280	- #766f80
+        #d1d5db	- #d8d1df
+        #e5e7eb	- #e7e1ed
+        #f9fafb	- #fbf9fd
+        #2563eb	- #8064a2
+        #1d4ed8	- #6d538c
+        #eff6ff	- #f0eaf7
+        #374151	- #484052
+        #111827	- #30283d
+        #1f2937 - #30283d
+
+
+         Después, haría estos ajustes de formato:
+
+En styles.css, cerca de la línea 16, cambia la tipografía a:
+font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif; 
+
+-En ese mismo archivo, dentro de body, agrega line-height: 1.5; debajo de font-family. Le da un poco más de aire al texto.
+-Para que tarjetas y paneles se vean más suaves, cambia border-radius: 12px a 16px y border-radius: 14px a 16px en las tarjetas principales. En botones y campos puedes dejar 8px.
+-En transferencia.css, la tarjeta de saldo usa el fondo lila suave tras el reemplazo de #eff6ff; así queda coordinada con los botones y los filtros.
+-En movimientos.css, los filtros activos y las filas seleccionadas usarán el mismo malva. Eso ayuda a que las páginas se sientan parte de una sola interfaz.
+-Yo empezaría solo con los reemplazos de color y revisaría cómo se ve; luego probaría los radios de las tarjetas.
 ======================================================== */
 
 * {
@@ -12,12 +36,12 @@
 
 body {
   min-height: 100vh;
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  /*font-family: Arial, Helvetica, sans-serif;*/
+  line-height: 1.5;
+  background-color: #f8f6fb;
 
-  font-family: Arial, Helvetica, sans-serif;
-
-  background-color: #f4f6f8;
-
-  color: #1f2937;
+  color: #30283d;
 }
 
 /* =========================================
@@ -47,13 +71,13 @@ body {
 .auth-header p {
   margin-bottom: 8px;
 
-  color: #6b7280;
+  color: #766f80;
 }
 
 .auth-header span {
   font-size: 0.9rem;
 
-  color: #6b7280;
+  color: #766f80;
 }
 
 .auth-container {
@@ -73,7 +97,7 @@ body {
 
   background-color: #ffffff;
 
-  border-radius: 12px;
+  border-radius: 16px;
 
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
 }
@@ -99,7 +123,7 @@ body {
 
   padding: 12px 14px;
 
-  border: 1px solid #d1d5db;
+  border: 1px solid #d8d1df;
 
   border-radius: 8px;
 
@@ -107,7 +131,7 @@ body {
 }
 
 .form-group input:focus {
-  outline: 2px solid #2563eb;
+  outline: 2px solid #8064a2;
 
   border-color: transparent;
 }
@@ -135,23 +159,23 @@ body {
 }
 
 .btn-primary {
-  background-color: #2563eb;
+  background-color: #8064a2;
 
   color: #ffffff;
 }
 
 .btn-primary:hover {
-  background-color: #1d4ed8;
+  background-color: #6d538c;
 }
 
 .btn-secondary {
-  background-color: #111827;
+  background-color: #30283d;
 
   color: #ffffff;
 }
 
 .btn-secondary:hover {
-  background-color: #374151;
+  background-color: #484052;
 }
 
 /* =========================================
@@ -161,7 +185,7 @@ body {
 .app-dashboard {
   min-height: 100vh;
 
-  background-color: #f4f6f8;
+  background-color: #f8f6fb;
 }
 
 .topbar {
@@ -177,7 +201,7 @@ body {
 
   background-color: #ffffff;
 
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e7e1ed;
 }
 
 .topbar h1 {
@@ -187,7 +211,7 @@ body {
 }
 
 .topbar p {
-  color: #6b7280;
+  color: #766f80;
 }
 
 .dashboard-nav {
@@ -201,13 +225,13 @@ body {
 
   background-color: #ffffff;
 
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e7e1ed;
 }
 
 .dashboard-nav a {
   padding: 9px 14px;
 
-  color: #374151;
+  color: #484052;
 
   text-decoration: none;
 
@@ -216,9 +240,9 @@ body {
 
 .dashboard-nav a:hover,
 .dashboard-nav a.active {
-  background-color: #eff6ff;
+  background-color: #f0eaf7;
 
-  color: #1d4ed8;
+  color: #6d538c;
 }
 
 .dashboard-content {
@@ -244,7 +268,7 @@ body {
 
   background-color: #ffffff;
 
-  border-radius: 14px;
+  border-radius: 16px;
 
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
 }
@@ -252,7 +276,7 @@ body {
 .dashboard-label {
   margin-bottom: 6px;
 
-  color: #2563eb;
+  color: #8064a2;
 
   font-weight: 700;
 }
@@ -264,7 +288,7 @@ body {
 }
 
 .dashboard-welcome p {
-  color: #6b7280;
+  color: #766f80;
 }
 
 .summary-grid {
@@ -286,13 +310,13 @@ body {
 
   background-color: #ffffff;
 
-  border-radius: 12px;
+  border-radius: 16px;
 
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
 }
 
 .summary-card span {
-  color: #6b7280;
+  color: #766f80;
 
   font-size: 0.9rem;
 }
@@ -300,7 +324,7 @@ body {
 .summary-card strong {
   font-size: 1.6rem;
 
-  color: #111827;
+  color: #30283d;
 }
 
 .dashboard-section {
@@ -308,7 +332,7 @@ body {
 
   background-color: #ffffff;
 
-  border-radius: 14px;
+  border-radius: 16px;
 
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
 }
@@ -322,7 +346,7 @@ body {
 
   margin-bottom: 5px;
 
-  color: #6b7280;
+  color: #766f80;
 
   font-size: 0.9rem;
 }
@@ -338,9 +362,9 @@ body {
 .account-card div {
   padding: 18px;
 
-  background-color: #f9fafb;
+  background-color: #fbf9fd;
 
-  border: 1px solid #e5e7eb;
+  border: 1px solid #e7e1ed;
 
   border-radius: 10px;
 }
@@ -350,7 +374,7 @@ body {
 
   margin-bottom: 8px;
 
-  color: #6b7280;
+  color: #766f80;
 
   font-size: 0.85rem;
 }
@@ -366,7 +390,7 @@ body {
 .app-cuenta {
   min-height: 100vh;
 
-  background-color: #f4f6f8;
+  background-color: #f8f6fb;
 }
 
 .cuenta-content {
@@ -392,7 +416,7 @@ body {
 
   background-color: #ffffff;
 
-  border-radius: 14px;
+  border-radius: 16px;
 
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
 }
@@ -414,7 +438,7 @@ body {
 }
 
 .cuenta-meta {
-  color: #6b7280;
+  color: #766f80;
 }
 
 .cuenta-detalle {
@@ -426,7 +450,7 @@ body {
 .cuenta-detalle p {
   padding-bottom: 14px;
 
-  border-bottom: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e7e1ed;
 }
 
 .cuenta-detalle p:last-child {
@@ -472,7 +496,7 @@ body {
 
   background-color: #ffffff;
 
-  border-radius: 14px;
+  border-radius: 16px;
 
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
 }

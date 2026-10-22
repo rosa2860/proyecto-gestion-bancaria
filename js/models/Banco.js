@@ -3,6 +3,7 @@ import { Movimiento } from "./Movimiento.js";
 export class Banco {
   /* =========================================
        CONSTRUCTOR
+       La clase Banco tiene usuarios, cuentas y movimientos
     ========================================= */
 
   constructor({ usuarios = [], cuentas = [], movimientos = [] } = {}) {
@@ -12,7 +13,7 @@ export class Banco {
   }
 
   /* =========================================
-       USUARIOS
+       USUARIOS 
     ========================================= */
 
   agregarUsuario(usuario) {
