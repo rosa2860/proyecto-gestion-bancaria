@@ -16,3 +16,22 @@ export function generarId() {
     desde el indice 2 hasta nates del índice 9 */
     .substring(2, 9)}`;
 }
+
+/* ========================================= 
+		GENERAR NÚMERO DE CUENTA 
+========================================= */
+export function generarNumeroCuenta() {
+  let numeroCuenta = "";
+
+  /* ===================================== 
+		GENERAR 12 DÍGITOS ALEATORIOS
+	===================================== */
+  for (let i = 0; i < 12; i += 1) {
+    numeroCuenta += Math.floor(Math.random() * 10);
+  }
+
+  /* ===================================== 
+			DEVOLVER RESULTADO 
+	===================================== */
+  return numeroCuenta;
+}
