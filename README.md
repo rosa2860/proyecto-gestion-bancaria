@@ -29,7 +29,7 @@ El proyecto utiliza las siguientes capas:
 
 ## Arquitectura actual
 
-```powershell
+```text
 js/
 ├── main.js
 │
@@ -41,9 +41,11 @@ js/
 │
 ├── services/
 │   ├── AuthService.js
+│   ├── BancoService.js
 │   └── StorageService.js
 │
 ├── ui/
+│   ├── CuentaUI.js
 │   └── DashboardUI.js
 │
 └── utils/
@@ -54,118 +56,120 @@ js/
 
 ## Páginas actuales
 
-### index.html
+- `index.html`
+- `dashboard.html`
+- `cuenta.html`
 
-Contiene:
+## Mi cuenta
 
-- Formulario de inicio de sesión.
-- Formulario de registro.
-- Integración de SweetAlert2.
+La página `cuenta.html` permite consultar:
 
-### dashboard.html
+- Titular.
+- Número de cuenta.
+- Tipo de cuenta.
+- Saldo.
+- Fecha de apertura.
+- Estado de la cuenta.
 
-Representa la primera página protegida del sistema.
+También permite administrar:
 
-Actualmente permite:
+- Nombre.
+- Correo electrónico.
+- Teléfono.
+- Contraseña.
+- Eliminación de la cuenta.
 
-- Validar la existencia de una sesión.
-- Mostrar al usuario autenticado.
-- Cerrar sesión.
+## BancoService
 
-## Services
+Además de las operaciones anteriores, ahora incorpora:
 
-### StorageService
+- `actualizarUsuario()`
+- `cambiarPassword()`
+- `eliminarUsuario()`
 
-Centraliza la comunicación con LocalStorage.
+### actualizarUsuario()
 
-Métodos:
+Actualiza:
 
-- `guardar()`
-- `obtener()`
-- `eliminar()`
-- `limpiar()`
+- nombre
+- email
+- teléfono
 
-### AuthService
+y evita utilizar un correo registrado por otro usuario.
 
-Centraliza la autenticación y sesión.
+### cambiarPassword()
 
-Métodos:
+Comprueba:
 
-- `login()`
-- `logout()`
-- `getCurrentUser()`
-- `protegerRuta()`
+- existencia del usuario
+- contraseña actual
+- nueva contraseña diferente
+- longitud mínima
 
-## Claves de almacenamiento
+### eliminarUsuario()
 
-El sistema utiliza:
+Elimina:
 
-- `STORAGE_KEYS.USUARIOS`
-- `STORAGE_KEYS.CUENTAS`
-- `STORAGE_KEYS.MOVIMIENTOS`
-- `STORAGE_KEYS.SESION`
+- usuario
+- cuentas asociadas
+- movimientos asociados
 
-## Registro de usuarios
-
-Al registrar un usuario:
-
-1. Se validan los datos.
-2. Se comprueba que el correo no esté registrado.
-3. Se crea una instancia de `Usuario`.
-4. Se genera un número de cuenta.
-5. Se crea una instancia de `Cuenta`.
-6. Se relaciona la cuenta mediante `usuarioId`.
-7. Usuario y cuenta se guardan en LocalStorage.
-
-## Autenticación
-
-El inicio de sesión:
-
-1. Recupera los usuarios almacenados.
-2. Busca coincidencia de correo y contraseña.
-3. Crea una sesión.
-4. Guarda la sesión en LocalStorage.
-5. Redirige al dashboard.
+La eliminación solo está permitida cuando las cuentas del usuario tienen saldo cero.
 
 ## SweetAlert2
 
-SweetAlert2 se utiliza para:
+En esta versión se utiliza para:
 
-- Alertas de validación.
-- Registro exitoso.
-- Errores de autenticación.
-- Login exitoso.
-- Confirmación de cierre de sesión.
+- Confirmar cierre de sesión.
+- Confirmar eliminación de cuenta.
+- Informar actualización exitosa.
+- Informar cambio de contraseña.
+- Informar eliminación exitosa.
+- Mostrar errores de eliminación.
+
+## Programación funcional aplicada
+
+Se utilizan métodos como:
+
+- `find()`
+- `some()`
+- `map()`
+- `filter()`
+- `includes()`
+- `forEach()`
+
+También se utiliza Spread Operator para actualizar objetos sin eliminar propiedades existentes.
 
 ## Funcionalidades implementadas
 
 Actualmente el sistema permite:
 
 - Registrar usuarios.
-- Crear una cuenta bancaria automáticamente.
-- Evitar correos duplicados.
-- Persistir usuarios y cuentas.
-- Iniciar sesión.
-- Mantener la sesión después de recargar.
-- Proteger páginas.
-- Mostrar al usuario autenticado.
+- Crear cuentas automáticamente.
+- Autenticarse.
+- Mantener sesión.
 - Cerrar sesión.
-- Mostrar alertas con SweetAlert2.
+- Consultar Dashboard.
+- Consultar datos bancarios.
+- Consultar información personal.
+- Actualizar información personal.
+- Evitar correos duplicados.
+- Cambiar contraseña.
+- Eliminar usuarios con saldo cero.
+- Eliminar datos relacionados.
+- Persistir los cambios en LocalStorage.
 
-## Funcionalidades siguientes
+## Próximas funcionalidades
 
-Durante las siguientes versiones se desarrollarán:
+Las siguientes versiones incorporarán:
 
-- Dashboard bancario completo.
-- Consulta de saldo.
-- Información de cuenta.
-- Gestión del perfil.
-- Depósitos desde interfaz.
 - Transferencias.
 - Historial de movimientos.
-- Validaciones adicionales.
+- Depósitos desde interfaz.
+- Validaciones bancarias adicionales.
 - Pruebas automatizadas con Jest.
+- Refactorización final.
 
 ## Versión actual
 
-v0.6.0 — Registro, autenticación, sesión y SweetAlert2.
+v0.8.0 — Gestión de cuenta, perfil y seguridad.
